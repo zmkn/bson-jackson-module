@@ -5,8 +5,10 @@ import com.fasterxml.jackson.databind.JsonSerializer
 import com.fasterxml.jackson.databind.SerializerProvider
 import org.bson.types.ObjectId
 
-class ObjectIdToStringSerializer : JsonSerializer<ObjectId>() {
+class ObjectIdSerializer : JsonSerializer<ObjectId>() {
     override fun serialize(value: ObjectId, gen: JsonGenerator, serializers: SerializerProvider) {
-        gen.writeString(value.toHexString())
+        gen.writeStartObject()
+        gen.writeStringField("\$oid", value.toHexString())
+        gen.writeEndObject()
     }
 }
