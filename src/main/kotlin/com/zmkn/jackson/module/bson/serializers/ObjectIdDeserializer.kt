@@ -10,8 +10,8 @@ import org.bson.types.ObjectId
 class ObjectIdDeserializer : JsonDeserializer<ObjectId>() {
     override fun deserialize(p: JsonParser, ctxt: DeserializationContext): ObjectId {
         val node = p.codec.readTree<JsonNode>(p)
-        val oid = node.get("\$oid")?.asText()
-            ?: throw JsonMappingException(p, "Missing required property '\$oid'")
+        val oid = node.get($$"$oid")?.asText()
+            ?: throw JsonMappingException(p, $$"Missing required property '$oid'")
         return ObjectId(oid)
     }
 }

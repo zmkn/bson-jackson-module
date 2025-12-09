@@ -17,11 +17,9 @@ object BsonJacksonModule {
         )
     }
 
-    fun generateModule(vararg serializers: SimpleModule.() -> Unit): SimpleModule {
-        return SimpleModule().apply {
-            serializers.forEach {
-                it()
-            }
+    fun generateModule(vararg serializers: SimpleModule.() -> Unit): SimpleModule = SimpleModule().apply {
+        serializers.forEach {
+            it()
         }
     }
 }

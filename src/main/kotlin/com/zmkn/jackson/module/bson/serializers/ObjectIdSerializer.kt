@@ -8,7 +8,7 @@ import org.bson.types.ObjectId
 class ObjectIdSerializer : JsonSerializer<ObjectId>() {
     override fun serialize(value: ObjectId, gen: JsonGenerator, serializers: SerializerProvider) {
         gen.writeStartObject()
-        gen.writeStringField("\$oid", value.toHexString())
+        gen.writeStringField($$"$oid", value.toHexString())
         gen.writeEndObject()
     }
 }
