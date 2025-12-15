@@ -1,14 +1,14 @@
 package com.zmkn.jackson.module.bson.serializers
 
-import com.fasterxml.jackson.core.JsonGenerator
-import com.fasterxml.jackson.databind.JsonSerializer
-import com.fasterxml.jackson.databind.SerializerProvider
 import org.bson.types.ObjectId
+import tools.jackson.core.JsonGenerator
+import tools.jackson.databind.SerializationContext
+import tools.jackson.databind.ValueSerializer
 
-class ObjectIdSerializer : JsonSerializer<ObjectId>() {
-    override fun serialize(value: ObjectId, gen: JsonGenerator, serializers: SerializerProvider) {
+class ObjectIdSerializer : ValueSerializer<ObjectId>() {
+    override fun serialize(value: ObjectId, gen: JsonGenerator, ctxt: SerializationContext) {
         gen.writeStartObject()
-        gen.writeStringField($$"$oid", value.toHexString())
+        gen.writeStringProperty($$"$oid", value.toHexString())
         gen.writeEndObject()
     }
 }

@@ -1,9 +1,9 @@
 package com.zmkn.jackson.module.bson
 
-import com.fasterxml.jackson.databind.module.SimpleModule
 import com.zmkn.jackson.module.bson.serializers.ObjectIdDeserializer
 import com.zmkn.jackson.module.bson.serializers.ObjectIdSerializer
 import org.bson.types.ObjectId
+import tools.jackson.databind.module.SimpleModule
 
 object BsonJacksonModule {
     val objectIdSerializers = fun SimpleModule.() {
