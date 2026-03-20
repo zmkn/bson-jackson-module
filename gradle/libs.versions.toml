@@ -2,7 +2,7 @@
 kotlin = "[2.3,3.0)"
 ktlint = "[14.0,15.0)"
 shadow = "[9.3,10.0)"
-jreleaser = "[1.20,1.21)"
+jreleaser = "[1.23,2.0)"
 mongodb = "[5.5,6.0)"
 toolsJacksonBom = "[3.0,4.0)"
 
